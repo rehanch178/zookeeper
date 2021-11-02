@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  zookeeper1:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+    image: rehanchy/zookeeper:zookeeper-3.6.2-2
+    hostname: zookeeper1
+    networks:
+      - vnetwork
+    environment:
+      - ZOOKEEPER_SERVER_ID=1
+      - ZK_JAVA_MEM=1g
+    volumes:
+      - /data/zookeeper:/var/lib/zookeeper
+      - /data/log/zookeeper:/var/log/zookeeper
+  zookeeper2:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node2
+    image: rehanchy/zookeeper:zookeeper-3.6.2-2
+    hostname: zookeeper2
+    networks:
+      - vnetwork
+    environment:
+      - ZOOKEEPER_SERVER_ID=2
+      - ZK_JAVA_MEM=1g
+    volumes:
+      - /data/zookeeper:/var/lib/zookeeper
+      - /data/log/zookeeper:/var/log/zookeeper
+
+  zookeeper3:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node3
+    image: rehanchy/zookeeper:zookeeper-3.6.2-2
+    hostname: zookeeper3
+    networks:
+      - vnetwork
+    environment:
+      - ZOOKEEPER_SERVER_ID=3
+      - ZK_JAVA_MEM=1g
+    volumes:
+      - /data/zookeeper:/var/lib/zookeeper
+      - /data/log/zookeeper:/var/log/zookeeper
+networks:
+  vnetwork:
+    external: true
+
