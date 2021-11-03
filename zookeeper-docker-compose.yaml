@@ -5,7 +5,7 @@ services:
       placement:
         constraints:
           - node.labels.node == node1
-    image: rehanchy/zookeeper:zookeeper-3.6.2-2
+    image: rehanchy/zookeeper:zookeeper-3.6.2-3
     hostname: zookeeper1
     networks:
       - vnetwork
@@ -20,7 +20,7 @@ services:
       placement:
         constraints:
           - node.labels.node == node2
-    image: rehanchy/zookeeper:zookeeper-3.6.2-2
+    image: rehanchy/zookeeper:zookeeper-3.6.2-3
     hostname: zookeeper2
     networks:
       - vnetwork
@@ -36,7 +36,7 @@ services:
       placement:
         constraints:
           - node.labels.node == node3
-    image: rehanchy/zookeeper:zookeeper-3.6.2-2
+    image: rehanchy/zookeeper:zookeeper-3.6.2-3
     hostname: zookeeper3
     networks:
       - vnetwork
